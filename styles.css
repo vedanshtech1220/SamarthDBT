@@ -628,140 +628,36 @@ details p {
 /* ------------------- */
 /* Add this to the end of your styles.css file */
 
+b/* ------------------- */
+/* 6. Lighter Dark Theme (Slate/Midnight)
+/* ------------------- */
+
 body.theme-dark {
   /* This creates a subtle, textured noise pattern for the background */
   --texture-noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
 
-  /* --- Re-define CSS Variables for Dark Mode --- */
+  /* --- Re-define CSS Variables for a Lighter, Slate-Blue Dark Mode --- */
 
   /* Colors */
-  --color-primary: #FFB74D; /* Light Orange */
-  --color-primary-dark: #F57C00; /* Darker Orange for hover */
-  --color-text: #E0E0E0; /* Off-white for body text */
-  --color-text-light: #9E9E9E; /* Lighter gray for muted text */
-  --color-heading: #FFFFFF; /* Pure white for headings */
-  --color-background: #1a1a1a; /* Main dark background */
-  --color-background-alt: #2a2a2a; /* Slightly lighter dark for alt sections */
-  --color-border: #424242; /* Darker border */
-  --color-surface: #252525; /* Dark surface for cards */
+  --color-primary: #FFB74D;         /* Light Orange accent remains vibrant */
+  --color-primary-dark: #F57C00;   /* Darker Orange for hover */
+  --color-text: #C5D2E5;           /* Softer, slightly blue-tinted text */
+  --color-text-light: #8A9BB3;     /* Muted text, still very readable */
+  --color-heading: #F5F7FA;        /* Softer white for headings */
+  --color-background: #1D2432;     /* Lighter, slate blue background */
+  --color-background-alt: #252E3F; /* Alt background and card surface */
+  --color-border: #3A4459;         /* Softer, more visible border */
+  --color-surface: #252E3F;        /* Surface color for cards */
 
-  /* Shadows (less prominent in dark mode, often replaced by glows or borders) */
+  /* Shadows (adjusted for the lighter dark background) */
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 0 15px rgba(255, 183, 77, 0.05);
-  --shadow-lg: 0 0 25px rgba(255, 183, 77, 0.1);
+  --shadow-md: 0 0 15px rgba(255, 183, 77, 0.07);
+  --shadow-lg: 0 0 25px rgba(255, 183, 77, 0.12);
 
   /* Set the textured background */
   background-color: var(--color-background);
   background-image: var(--texture-noise);
 }
-
-/* --- Specific Overrides for Dark Mode --- */
-
-/* Gov Bar (Already dark, but let's ensure consistency) */
-body.theme-dark .gov-bar {
-  background-color: #000000;
-}
-
-/* Header with transparency */
-body.theme-dark .site-header {
-  background-color: rgba(26, 26, 26, 0.85); /* Semi-transparent dark */
-  backdrop-filter: blur(10px);
-  border-bottom-color: var(--color-border);
-}
-
-/* Hero Section Gradients */
-body.theme-dark .decor-bg {
-  background: radial-gradient(circle at 10% 20%, rgba(255, 183, 77, 0.1), transparent 50%),
-              radial-gradient(circle at 80% 90%, rgba(3, 152, 85, 0.1), transparent 50%);
-}
-
-/* Change Hero Wave SVG fill to the dark background color */
-body.theme-dark .hero-wave {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%231a1a1a' fill-opacity='1' d='M0,160L48,176C96,192,192,224,288,229.3C384,235,480,213,576,192C672,171,768,149,864,154.7C960,160,1056,192,1152,197.3C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
-}
-
-
-/* Inverted Buttons */
-body.theme-dark .btn {
-  /* Text on orange buttons should be dark */
-  color: #1a1a1a;
-}
-body.theme-dark .btn:hover {
-  color: #1a1a1a;
-}
-body.theme-dark .btn-outline {
-  color: var(--color-primary); /* Orange text */
-  border-color: var(--color-border);
-}
-body.theme-dark .btn-outline:hover {
-  background-color: var(--color-primary);
-  color: #1a1a1a; /* Dark text on hover */
-  border-color: var(--color-primary);
-}
-
-
-/* Forms */
-body.theme-dark .form-row input:focus {
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(255, 183, 77, 0.2);
-}
-
-/* Cards */
-body.theme-dark .card:hover {
-  border-color: var(--color-primary);
-}
-
-/* FAQ dropdown icon color */
-body.theme-dark details > summary::after {
-  color: var(--color-primary);
-}
-
-/* Architecture Diagram */
-body.theme-dark .arch-diagram {
-  background: var(--color-background);
-}
-body.theme-dark .arch-svg rect[fill="#ffffff"] {
-  fill: var(--color-surface);
-}
-body.theme-dark .arch-svg rect[fill="#f7faff"] {
-  fill: var(--color-background-alt);
-}
-body.theme-dark .arch-svg text {
-  fill: var(--color-text);
-}
-body.theme-dark .arch-svg text[fill="#102749"] {
-  fill: var(--color-heading);
-}
-body.theme-dark .arch-svg text[fill="#5b6b88"] {
-  fill: var(--color-text-light);
-}
-
-/* Chat Widget */
-body.theme-dark .chat-launcher {
-  color: #1a1a1a;
-}
-body.theme-dark .chat-input button {
-    color: #1a1a1a;
-}
-
-/* --- Footer Fix for Dark Mode --- */
-/* Add this to the end of your CSS to fix the footer styles */
-
-body.theme-dark .site-footer {
-  background-color: #000000;                 /* Use a solid dark color, like the top bar */
-  color: var(--color-text);                  /* Use the main off-white text color */
-  border-top: 1px solid var(--color-border); /* Add a subtle separator line */
-}
-
-body.theme-dark .footer-inner a {
-  color: var(--color-heading); /* Links can be brighter (pure white) */
-  opacity: 0.8;
-}
-
-body.theme-dark .footer-inner a:hover {
-  opacity: 1; /* Make links fully bright on hover */
-}
-
 /* --------------------------------- */
 /* 7. Hero Section Entrance Animation
 /* --------------------------------- */
@@ -815,4 +711,42 @@ body.theme-dark .footer-inner a:hover {
 }
 .hero .hero-bullets li:nth-child(3) {
   animation-delay: 1.0s;
+}
+
+
+/* --------------------------------- */
+/* 9. Hero Section with Image Layout
+/* --------------------------------- */
+
+/* 1. Basic Image Styling (for all screen sizes) */
+.hero-logo {
+  display: block;
+  max-width: 300px;
+  width: 60%;
+  height: auto;
+  border-radius: 12px;
+  margin: 0 auto var(--spacing-xl); /* Centers the logo on mobile */
+  ;
+}
+
+/* 2. Two-Column Layout (for DESKTOP screens) */
+@media (min-width: 992px) {
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; /* Creates the two columns */
+    gap: var(--spacing-xxl);
+    align-items: center;
+  }
+
+  .hero-logo {
+    width: 100%;
+    max-width: 450px;
+    margin: 0; /* Resets the mobile centering */
+  }
+
+  .hero-copy {
+    text-align: left;
+    margin: 0;
+    max-width: none; /* IMPORTANT: Removes width restriction */
+  }
 }
