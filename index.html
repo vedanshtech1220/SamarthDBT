@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SamarthDBT — Student DBT Awareness & Verification</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="theme-dark">
+  <div class="gov-bar">
+    <div class="container gov-bar-inner">
+      <div class="gov-left">
+        <span class="gov-text">Government of India • Ministry of Education</span>
+      </div>
+      <div class="gov-right">
+        <a href="#" class="gov-link">हिन्दी</a>
+        <span class="sep">|</span>
+        <a href="#" class="gov-link">English</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#">
+        <div class="brand-text">
+          <strong>SamarthDBT</strong>
+          <small>DBT Awareness & Verification</small>
+        </div>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#verify">Verify</a>
+        <a href="#awareness">Awareness</a>
+        <a href="#workflows">Workflows</a>
+        <a href="#faq">FAQs</a>
+        <a href="#contact" class="btn btn-sm">Contact</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="decor-bg" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <h1>Make your account DBT‑ready before scholarships are released</h1>
+          <p>Verify status in seconds, understand simple steps, and avoid delays. Designed for students, parents, and schools.</p>
+          <div class="cta-group">
+            <a href="#verify" class="btn">Check DBT Status</a>
+            <a href="#awareness" class="btn btn-outline">Learn the Difference</a>
+          </div>
+          <ul class="hero-bullets">
+            <li>✔ Simple, student‑friendly guidance</li>
+            <li>✔ Auto‑filled bank forms for corrections</li>
+            <li>✔ Multilingual and accessible design</li>
+          </ul>
+        </div>
+      </div>
+      <div class="hero-wave" aria-hidden="true"></div>
+    </section>
+
+    <section id="about" class="section container">
+      <h2>About SamarthDBT</h2>
+      <p class="lead">A unified awareness and verification platform to help every student receive scholarships on time by ensuring their bank account is DBT‑enabled.</p>
+      <div class="feature-cards">
+        <div class="card feature-card">
+          <div class="icon">🔍</div>
+          <div>
+            <h3>Real‑time Verification</h3>
+            <p>Instantly check Aadhaar seeding and DBT enablement (NPCI mapper integration in production).</p>
+          </div>
+        </div>
+        <div class="card feature-card">
+          <div class="icon">📝</div>
+          <div>
+            <h3>Corrective Workflows</h3>
+            <p>Auto‑generate pre‑filled bank forms and step‑by‑step branch guidance to activate DBT.</p>
+          </div>
+        </div>
+        <div class="card feature-card">
+          <div class="icon">🎧</div>
+          <div>
+            <h3>Inclusive Support</h3>
+            <p>Multilingual, voice‑ready content and offline outreach via schools and Gram Panchayats.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="verify" class="section container">
+      <div class="section-head">
+        <h2>Verify DBT Status</h2>
+        <p>We only show last 4 digits of Aadhaar. Do not share OTPs.</p>
+      </div>
+      <form id="verify-form" class="card form-card" novalidate>
+        <div class="form-row">
+          <label for="aadhaar">Aadhaar Number</label>
+          <input id="aadhaar" name="aadhaar" inputmode="numeric" autocomplete="off" placeholder="Enter 12-digit Aadhaar" required maxlength="12" />
+          <small class="hint">Only last 4 will be shown</small>
+        </div>
+        <div class="form-row">
+          <label for="account">Bank Account Number</label>
+          <input id="account" name="account" inputmode="numeric" autocomplete="off" placeholder="Enter account number" required />
+        </div>
+        <div class="form-row">
+          <label for="ifsc">IFSC Code</label>
+          <input id="ifsc" name="ifsc" autocomplete="off" placeholder="e.g., SBIN0000001" required />
+        </div>
+        <div class="actions">
+          <button type="submit" class="btn">Check Status</button>
+        </div>
+        <div id="verify-result" class="verify-result" aria-live="polite"></div>
+      </form>
+      <p class="disclaimer">Demo only. In production, this connects securely to the NPCI Mapper / NSP as per government policy.</p>
+    </section>
+
+    <section id="awareness" class="section section-alt">
+      <div class="container">
+        <h2>Aadhaar‑linked ≠ DBT‑enabled</h2>
+        <div class="grid-2 info-split">
+          <div class="card">
+            <h3>What students assume</h3>
+            <p>“My account is Aadhaar‑linked, so I will get scholarship funds.”</p>
+          </div>
+          <div class="card">
+            <h3>What is required</h3>
+            <p>Your account must be <strong>DBT‑enabled</strong> in the NPCI mapper. If not, funds bounce and disbursement is delayed.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="workflows" class="section container">
+      <h2>Corrective Workflow</h2>
+      <ol class="steps">
+        <li>System checks NPCI mapper and detects non‑DBT status.</li>
+        <li>Auto‑generates bank‑specific, pre‑filled consent/mandate form.</li>
+        <li>Guides you to nearest branch with step‑by‑step instructions.</li>
+        <li>Sends reminders until activation is confirmed.</li>
+      </ol>
+      <a href="#verify" class="btn">Start Now</a>
+    </section>
+
+    <section id="architecture" class="section section-alt">
+      <div class="container">
+        <h2>System Architecture</h2>
+        <p class="lead">Landscape view of the Samarth DBT platform from user interfaces to secure infrastructure and external integrations.</p>
+        <div class="arch-diagram">
+          <svg viewBox="0 0 1200 700" role="img" aria-label="Samarth DBT System Architecture" class="arch-svg">
+            <defs>
+              <linearGradient id="archG" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#eef4ff"/>
+                <stop offset="100%" stop-color="#eafff6"/>
+              </linearGradient>
+            </defs>
+            <rect x="0" y="0" width="1200" height="700" rx="16" fill="url(#archG)" stroke="#e6ecf5"/>
+
+            <!-- Side Layer – External Integrations -->
+            <g transform="translate(920,40)">
+              <rect x="0" y="0" width="240" height="620" rx="12" fill="#ffffff" stroke="#dbe3f0"/>
+              <text x="120" y="28" text-anchor="middle" font-size="16" fill="#102749" font-weight="700">External Integrations</text>
+              <g transform="translate(20,60)">
+                <text y="0" font-size="14">🏦 NPCI Mapper API</text>
+                <text y="34" font-size="14">🆔 UIDAI API</text>
+                <text y="68" font-size="14">🎓 NSP & State Portals</text>
+                <text y="102" font-size="14">📲 SMS Gateway</text>
+                <text y="136" font-size="14">💬 WhatsApp Business API</text>
+                <text y="170" font-size="14">📧 Email Service</text>
+              </g>
+            </g>
+
+            <!-- Top Layer – Presentation & User Services -->
+            <g transform="translate(40,40)">
+              <rect x="0" y="0" width="860" height="140" rx="12" fill="#ffffff" stroke="#dbe3f0"/>
+              <text x="430" y="28" text-anchor="middle" font-size="16" fill="#102749" font-weight="700">Presentation & User Services</text>
+              <g transform="translate(24,56)">
+                <rect x="0" y="0" width="250" height="64" rx="10" fill="#f7faff" stroke="#dbe3f0"/>
+                <text x="14" y="26" font-size="14">📱 + 💻 Student Portal & Mobile App</text>
+                <rect x="290" y="0" width="250" height="64" rx="10" fill="#f7faff" stroke="#dbe3f0"/>
+                <text x="304" y="26" font-size="14">🌐 + 🤖 Guardian/Parent Portal</text>
+                <rect x="580" y="0" width="250" height="64" rx="10" fill="#f7faff" stroke="#dbe3f0"/>
+                <text x="594" y="22" font-size="14">📊 Admin Dashboards</text>
+                <text x="594" y="44" font-size="12" fill="#5b6b88">🏫 School • 🏢 District • 🏛 Govt.</text>
+              </g>
+            </g>
+
+            <!-- Middle Layer – Application & API Layer (Microservices) -->
+            <g transform="translate(40,210)">
+              <rect x="0" y="0" width="860" height="210" rx="12" fill="#ffffff" stroke="#dbe3f0"/>
+              <text x="430" y="28" text-anchor="middle" font-size="16" fill="#102749" font-weight="700">Application & API Layer (Microservices)</text>
+              <g transform="translate(24,56)">
+                <rect x="0" y="0" width="240" height="56" rx="10" fill="#f7faff" stroke="#dbe3f0"/>
+                <text x="14" y="26" font-size="14">🔐 Authentication & Authorization</text>
+                <rect x="0" y="72" width="240" height="56" rx="10" fill="#f7faff" stroke="#dbe3f0"/>
+                <text x="14" y="98" font-size="14">📈 Analytics & Reporting</text>
+
+                <rect x="270" y="0" width="240" height="56" rx="10" fill="#f7faff" stroke="#dbe3f0"/>
+                <text x="284" y="26" font-size="14">🔄 DBT Verification Engine</text>
+                <rect x="270" y="72" width="240" height="56" rx="10" fill="#f7faff" stroke="#dbe3f0"/>
+                <text x="284" y="98" font-size="14">📩 Notification Service</text>
+
+                <rect x="540" y="0" width="240" height="56" rx="10" fill="#f7faff" stroke="#dbe3f0"/>
+                <text x="554" y="26" font-size="14">📝 Correction Workflow Engine</text>
+                <rect x="540" y="72" width="240" height="56" rx="10" fill="#f7faff" stroke="#dbe3f0"/>
+                <text x="554" y="98" font-size="14">⚙ API Gateway (JWT • Rate Limits)</text>
+              </g>
+            </g>
+
+            <!-- Lower Layer – Infrastructure & Storage -->
+            <g transform="translate(40,450)">
+              <rect x="0" y="0" width="860" height="140" rx="12" fill="#ffffff" stroke="#dbe3f0"/>
+              <text x="430" y="28" text-anchor="middle" font-size="16" fill="#102749" font-weight="700">Infrastructure & Storage</text>
+              <g transform="translate(24,56)">
+                <text x="0" y="0" font-size="14">⚖ Load Balancer</text>
+                <text x="180" y="0" font-size="14">💻 Backend Servers</text>
+                <text x="380" y="0" font-size="14">🗄 PostgreSQL</text>
+                <text x="540" y="0" font-size="14">⚡ Redis Cache</text>
+                <text x="680" y="0" font-size="14">🔍 Elasticsearch</text>
+                <text x="0" y="34" font-size="14">☁ Object Storage (S3/GCS)</text>
+              </g>
+            </g>
+
+            <!-- Bottom Layer – Security -->
+            <g transform="translate(40,610)">
+              <rect x="0" y="0" width="860" height="50" rx="12" fill="#ffffff" stroke="#dbe3f0"/>
+              <text x="430" y="20" text-anchor="middle" font-size="14" fill="#102749" font-weight="700">Security: 🧱 Firewall • 🔀 Proxy • 🔒 Encryption • 🛡 Aadhaar Masking & Compliance</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section container">
+      <h2>FAQs</h2>
+      <details class="card">
+        <summary>Is Aadhaar‑linked the same as DBT‑enabled?</summary>
+        <p>No. Aadhaar‑linked means your Aadhaar is connected to your bank account. DBT‑enabled means your account is marked in the NPCI mapper to receive government transfers.</p>
+      </details>
+      <details class="card">
+        <summary>Why did my scholarship bounce?</summary>
+        <p>Most failures happen when the account is not DBT‑enabled in the NPCI mapper, even if Aadhaar is linked.</p>
+      </details>
+      <details class="card">
+        <summary>Is my data safe?</summary>
+        <p>Only essential data is processed; Aadhaar is masked to last 4 digits. All communications use encryption in production.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer id="contact" class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Contact</strong>
+        <p>Email: support@samarthdbt.example</p>
+        <p>For rural support, contact your school or Gram Panchayat help desk.</p>
+      </div>
+      <div class="footer-nav">
+        <a href="#about">About</a>
+        <a href="#verify">Verify</a>
+        <a href="#awareness">Awareness</a>
+        <a href="#workflows">Workflows</a>
+        <a href="#faq">FAQs</a>
+      </div>
+    </div>
+  </footer>
+
+  <div id="chat-launcher" class="chat-launcher" aria-label="Open help chat" title="Chat">
+    💬
+  </div>
+  <div id="chat-panel" class="chat-panel" role="dialog" aria-modal="false" aria-labelledby="chat-title" hidden>
+    <div class="chat-header">
+      <div>
+        <strong id="chat-title">SamarthDBT Assistant</strong>
+        <small>Ask about DBT enablement, forms, or status</small>
+      </div>
+      <button id="chat-close" class="chat-close" aria-label="Close chat">✕</button>
+    </div>
+    <div id="chat-body" class="chat-body" aria-live="polite"></div>
+    <form id="chat-form" class="chat-input" autocomplete="off">
+      <input id="chat-text" type="text" placeholder="Type your question..." aria-label="Type your question" />
+      <button type="submit" class="btn">Send</button>
+    </form>
+  </div>
+  
+
+  <script src="./js/main.js"></script>
+</body>
+</html> 

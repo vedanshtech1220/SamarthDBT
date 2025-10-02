@@ -1,0 +1,818 @@
+/* ./css/styles.css */
+
+/* ------------------- */
+/* 1. Design Tokens & Base Styles
+/* ------------------- */
+:root {
+  /* Colors */
+  --color-primary: #0052cc;
+  --color-primary-dark: #0041a3;
+  --color-secondary: #28a745;
+  --color-text: #344054;
+  --color-text-light: #667085;
+  --color-heading: #101828;
+  --color-background: #ffffff;
+  --color-background-alt: #f8f9fc;
+  --color-border: #d0d5dd;
+  --color-surface: #ffffff;
+  --color-error: #d92d20;
+  --color-success: #039855;
+  --color-white: #ffffff;
+
+  /* Typography */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-size-base: 16px;
+  --line-height-base: 1.6;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;  /* 4px */
+  --spacing-sm: 0.5rem;   /* 8px */
+  --spacing-md: 1rem;     /* 16px */
+  --spacing-lg: 1.5rem;   /* 24px */
+  --spacing-xl: 2rem;     /* 32px */
+  --spacing-xxl: 4rem;    /* 64px */
+
+  /* Borders & Shadows */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 16px;
+  --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(16, 24, 40, 0.1), 0 2px 4px -2px rgba(16, 24, 40, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(16, 24, 40, 0.1), 0 4px 6px -4px rgba(16, 24, 40, 0.1);
+
+  /* Transitions */
+  --transition-fast: all 0.2s ease-in-out;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-lg);
+  padding-right: var(--spacing-lg);
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+  color: var(--color-heading);
+  line-height: 1.2;
+}
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; margin: 0 0 var(--spacing-lg); }
+h3 { font-size: 1.25rem; }
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+a:hover {
+  color: var(--color-primary-dark);
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ------------------- */
+/* 2. Utility Classes
+/* ------------------- */
+.lead {
+  font-size: 1.15rem;
+  color: var(--color-text-light);
+  max-width: 720px;
+  margin: 0 auto var(--spacing-lg);
+  text-align: center;
+}
+
+.section {
+  padding-top: var(--spacing-xxl);
+  padding-bottom: var(--spacing-xxl);
+}
+
+.section-alt {
+  background-color: var(--color-background-alt);
+}
+
+.section-head {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+.section-head p {
+  color: var(--color-text-light);
+}
+
+/* ------------------- */
+/* 3. Components
+/* ------------------- */
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  padding: 0.75rem 1.5rem;
+  font-size: var(--font-size-base);
+  border-radius: var(--border-radius-md);
+  transition: var(--transition-fast);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn:hover {
+  background-color: var(--color-primary-dark);
+  color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-border);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+}
+
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+/* Cards */
+.card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-fast);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+/* Forms */
+.form-card {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: var(--spacing-xl);
+}
+
+.form-row {
+  margin-bottom: var(--spacing-lg);
+}
+
+.form-row label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+}
+
+.form-row input {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-row input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.2);
+}
+
+.form-row .hint {
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+  margin-top: var(--spacing-sm);
+}
+
+.actions {
+  margin-top: var(--spacing-xl);
+  text-align: center;
+}
+
+.disclaimer {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+  margin-top: var(--spacing-lg);
+}
+
+/* ------------------- */
+/* 4. Layout Sections
+/* ------------------- */
+
+/* Gov Bar */
+.gov-bar {
+  background-color: #212529;
+  color: var(--color-white);
+  font-size: 0.875rem;
+  padding: var(--spacing-sm) 0;
+}
+.gov-bar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.gov-link {
+  color: var(--color-white);
+  margin: 0 var(--spacing-sm);
+}
+.gov-link:hover {
+  text-decoration: underline;
+}
+.sep {
+  opacity: 0.5;
+}
+
+/* Header */
+.site-header {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--spacing-md) 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.brand strong {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-heading);
+}
+.brand small {
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+  display: block;
+}
+.nav {
+  display: none; /* Hidden on mobile */
+  gap: var(--spacing-lg);
+  align-items: center;
+}
+.nav a {
+  font-weight: 600;
+  color: var(--color-text);
+}
+.nav a:hover {
+  color: var(--color-primary);
+}
+.nav-toggle {
+  display: block; /* Shown on mobile */
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  text-align: center;
+  padding: var(--spacing-xxl) 0;
+  overflow: hidden;
+}
+.decor-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 10% 20%, rgba(204, 229, 255, 0.4), transparent 50%),
+              radial-gradient(circle at 80% 90%, rgba(204, 255, 229, 0.4), transparent 50%);
+  z-index: -2;
+}
+.hero-wave {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='1' d='M0,160L48,176C96,192,192,224,288,229.3C384,235,480,213,576,192C672,171,768,149,864,154.7C960,160,1056,192,1152,197.3C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+}
+.hero-copy {
+  max-width: 650px;
+  margin: 0 auto;
+}
+.hero h1 {
+  font-size: 2.25rem;
+}
+.hero p {
+  font-size: 1.15rem;
+  color: var(--color-text-light);
+  margin: var(--spacing-lg) 0;
+}
+.cta-group {
+  margin: var(--spacing-xl) 0;
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+.hero-bullets {
+  list-style: none;
+  padding: 0;
+  margin-top: var(--spacing-xl);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  text-align: left;
+}
+
+/* Feature Cards */
+.feature-cards {
+  display: grid;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+}
+.feature-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-lg);
+  text-align: left;
+}
+.feature-card .icon {
+  font-size: 2rem;
+}
+
+/* Awareness Section */
+.info-split {
+  display: grid;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+.info-split .card {
+  border-left: 4px solid;
+}
+.info-split .card:first-child {
+  border-color: var(--color-error);
+}
+.info-split .card:last-child {
+  border-color: var(--color-success);
+}
+.info-split h3 { margin-top: 0; }
+
+/* Workflow Section */
+.steps {
+  list-style: none;
+  padding: 0;
+  counter-reset: steps-counter;
+  max-width: 600px;
+  margin: var(--spacing-xl) auto;
+}
+.steps li {
+  counter-increment: steps-counter;
+  position: relative;
+  padding-left: 50px;
+  margin-bottom: var(--spacing-xl);
+}
+.steps li::before {
+  content: counter(steps-counter);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Architecture Diagram */
+.arch-diagram {
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-lg);
+    background: #f9fafb;
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-sm);
+}
+
+/* FAQs */
+#faq .card {
+  margin-bottom: var(--spacing-md);
+}
+details > summary {
+  list-style: none;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  padding-right: var(--spacing-xl);
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+details > summary::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  transition: transform 0.2s;
+}
+details[open] > summary::after {
+  transform: rotate(45deg);
+}
+details p {
+  margin-top: var(--spacing-md);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--color-border);
+}
+
+/* Footer */
+.site-footer {
+  background-color: var(--color-heading);
+  color: var(--color-white);
+  padding: var(--spacing-xl) 0;
+}
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  text-align: center;
+}
+.footer-inner a {
+  color: var(--color-white);
+  opacity: 0.8;
+}
+.footer-inner a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-lg);
+  justify-content: center;
+}
+
+/* Chat Widget */
+.chat-launcher {
+  position: fixed;
+  bottom: var(--spacing-lg);
+  right: var(--spacing-lg);
+  width: 60px;
+  height: 60px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  box-shadow: var(--shadow-lg);
+  cursor: pointer;
+  z-index: 1000;
+  transition: var(--transition-fast);
+}
+.chat-launcher:hover {
+  background-color: var(--color-primary-dark);
+  transform: scale(1.1);
+}
+
+.chat-panel {
+  position: fixed;
+  bottom: calc(var(--spacing-lg) + 70px);
+  right: var(--spacing-lg);
+  width: 90%;
+  max-width: 360px;
+  background-color: var(--color-background);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+}
+.chat-panel:not([hidden]) {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.chat-header {
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-background-alt);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.chat-header strong { display: block; }
+.chat-header small { color: var(--color-text-light); }
+.chat-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0;
+  opacity: 0.6;
+}
+.chat-close:hover { opacity: 1; }
+.chat-body {
+  flex-grow: 1;
+  padding: var(--spacing-md);
+  height: 300px;
+  overflow-y: auto;
+}
+.chat-input {
+  display: flex;
+  padding: var(--spacing-md);
+  border-top: 1px solid var(--color-border);
+}
+.chat-input input {
+  flex-grow: 1;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md) 0 0 var(--border-radius-md);
+  padding: 0.5rem 0.75rem;
+}
+.chat-input input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: none;
+}
+.chat-input button {
+  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  box-shadow: none;
+}
+
+/* ------------------- */
+/* 5. Media Queries
+/* ------------------- */
+@media (min-width: 768px) {
+  h1 { font-size: 3rem; }
+  .hero h1 { font-size: 3.5rem; }
+  
+  .nav-toggle { display: none; }
+  .nav { display: flex; }
+  
+  .hero-copy {
+    text-align: left;
+  }
+  .cta-group, .hero-bullets {
+    justify-content: flex-start;
+  }
+
+  .feature-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .info-split {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-inner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+  }
+}
+
+/* ------------------- */
+/* 6. Dark Theme (with Light Orange Texture)
+/* ------------------- */
+/* Add this to the end of your styles.css file */
+
+body.theme-dark {
+  /* This creates a subtle, textured noise pattern for the background */
+  --texture-noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
+
+  /* --- Re-define CSS Variables for Dark Mode --- */
+
+  /* Colors */
+  --color-primary: #FFB74D; /* Light Orange */
+  --color-primary-dark: #F57C00; /* Darker Orange for hover */
+  --color-text: #E0E0E0; /* Off-white for body text */
+  --color-text-light: #9E9E9E; /* Lighter gray for muted text */
+  --color-heading: #FFFFFF; /* Pure white for headings */
+  --color-background: #1a1a1a; /* Main dark background */
+  --color-background-alt: #2a2a2a; /* Slightly lighter dark for alt sections */
+  --color-border: #424242; /* Darker border */
+  --color-surface: #252525; /* Dark surface for cards */
+
+  /* Shadows (less prominent in dark mode, often replaced by glows or borders) */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 0 15px rgba(255, 183, 77, 0.05);
+  --shadow-lg: 0 0 25px rgba(255, 183, 77, 0.1);
+
+  /* Set the textured background */
+  background-color: var(--color-background);
+  background-image: var(--texture-noise);
+}
+
+/* --- Specific Overrides for Dark Mode --- */
+
+/* Gov Bar (Already dark, but let's ensure consistency) */
+body.theme-dark .gov-bar {
+  background-color: #000000;
+}
+
+/* Header with transparency */
+body.theme-dark .site-header {
+  background-color: rgba(26, 26, 26, 0.85); /* Semi-transparent dark */
+  backdrop-filter: blur(10px);
+  border-bottom-color: var(--color-border);
+}
+
+/* Hero Section Gradients */
+body.theme-dark .decor-bg {
+  background: radial-gradient(circle at 10% 20%, rgba(255, 183, 77, 0.1), transparent 50%),
+              radial-gradient(circle at 80% 90%, rgba(3, 152, 85, 0.1), transparent 50%);
+}
+
+/* Change Hero Wave SVG fill to the dark background color */
+body.theme-dark .hero-wave {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%231a1a1a' fill-opacity='1' d='M0,160L48,176C96,192,192,224,288,229.3C384,235,480,213,576,192C672,171,768,149,864,154.7C960,160,1056,192,1152,197.3C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+
+/* Inverted Buttons */
+body.theme-dark .btn {
+  /* Text on orange buttons should be dark */
+  color: #1a1a1a;
+}
+body.theme-dark .btn:hover {
+  color: #1a1a1a;
+}
+body.theme-dark .btn-outline {
+  color: var(--color-primary); /* Orange text */
+  border-color: var(--color-border);
+}
+body.theme-dark .btn-outline:hover {
+  background-color: var(--color-primary);
+  color: #1a1a1a; /* Dark text on hover */
+  border-color: var(--color-primary);
+}
+
+
+/* Forms */
+body.theme-dark .form-row input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(255, 183, 77, 0.2);
+}
+
+/* Cards */
+body.theme-dark .card:hover {
+  border-color: var(--color-primary);
+}
+
+/* FAQ dropdown icon color */
+body.theme-dark details > summary::after {
+  color: var(--color-primary);
+}
+
+/* Architecture Diagram */
+body.theme-dark .arch-diagram {
+  background: var(--color-background);
+}
+body.theme-dark .arch-svg rect[fill="#ffffff"] {
+  fill: var(--color-surface);
+}
+body.theme-dark .arch-svg rect[fill="#f7faff"] {
+  fill: var(--color-background-alt);
+}
+body.theme-dark .arch-svg text {
+  fill: var(--color-text);
+}
+body.theme-dark .arch-svg text[fill="#102749"] {
+  fill: var(--color-heading);
+}
+body.theme-dark .arch-svg text[fill="#5b6b88"] {
+  fill: var(--color-text-light);
+}
+
+/* Chat Widget */
+body.theme-dark .chat-launcher {
+  color: #1a1a1a;
+}
+body.theme-dark .chat-input button {
+    color: #1a1a1a;
+}
+
+/* --- Footer Fix for Dark Mode --- */
+/* Add this to the end of your CSS to fix the footer styles */
+
+body.theme-dark .site-footer {
+  background-color: #000000;                 /* Use a solid dark color, like the top bar */
+  color: var(--color-text);                  /* Use the main off-white text color */
+  border-top: 1px solid var(--color-border); /* Add a subtle separator line */
+}
+
+body.theme-dark .footer-inner a {
+  color: var(--color-heading); /* Links can be brighter (pure white) */
+  opacity: 0.8;
+}
+
+body.theme-dark .footer-inner a:hover {
+  opacity: 1; /* Make links fully bright on hover */
+}
+
+/* --------------------------------- */
+/* 7. Hero Section Entrance Animation
+/* --------------------------------- */
+
+/* 1. Define the "fade in and slide up" animation keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 2. Apply the animation to the hero section elements */
+.hero h1,
+.hero p,
+.hero .cta-group,
+.hero .hero-bullets li {
+  /* This keeps the elements hidden until the animation starts */
+  opacity: 0;
+  /* This tells the element to stay at the 'to' state after the animation finishes */
+  animation-fill-mode: forwards;
+  /* Apply our animation */
+  animation-name: fadeInUp;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-out;
+}
+
+/* 3. Stagger the animations by adding a delay to each element */
+.hero h1 {
+  animation-delay: 0.2s;
+}
+
+.hero p {
+  animation-delay: 0.4s;
+}
+
+.hero .cta-group {
+  animation-delay: 0.6s;
+}
+
+/* Animate each bullet point individually */
+.hero .hero-bullets li:nth-child(1) {
+  animation-delay: 0.8s;
+}
+.hero .hero-bullets li:nth-child(2) {
+  animation-delay: 0.9s;
+}
+.hero .hero-bullets li:nth-child(3) {
+  animation-delay: 1.0s;
+}
