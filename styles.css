@@ -74,7 +74,6 @@ h1, h2, h3 {
   color: var(--color-heading);
   line-height: 1.2;
 }
-h1 { font-size: 2.5rem; }
 h2 { font-size: 2rem; margin: 0 0 var(--spacing-lg); }
 h3 { font-size: 1.25rem; }
 
@@ -125,7 +124,6 @@ img, svg {
 /* 3. Components
 /* ------------------- */
 
-/* Buttons */
 .btn {
   display: inline-block;
   font-weight: 600;
@@ -167,7 +165,6 @@ img, svg {
   font-size: 0.875rem;
 }
 
-/* Cards */
 .card {
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
@@ -182,7 +179,6 @@ img, svg {
   transform: translateY(-3px);
 }
 
-/* Forms */
 .form-card {
   max-width: 500px;
   margin: 0 auto;
@@ -240,7 +236,6 @@ img, svg {
 /* 4. Layout Sections
 /* ------------------- */
 
-/* Gov Bar */
 .gov-bar {
   background-color: #212529;
   color: var(--color-white);
@@ -263,12 +258,12 @@ img, svg {
   opacity: 0.5;
 }
 
-/* Header */
+
 .site-header {
   background-color: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--color-border);
-  padding: var(--spacing-md) 0;
+  padding: var(--spacing-sm) 0;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -276,30 +271,66 @@ img, svg {
 .header-inner {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; /* This is the key property for vertical alignment */
+  min-height: 64px;   /* Ensures the header has a consistent height */
 }
-.brand strong {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--color-heading);
+.brand {
+  display: flex; /* Helps with internal alignment */
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
 }
 .brand small {
   font-size: 0.8rem;
   color: var(--color-text-light);
   display: block;
 }
+
+.brand-text {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  display: block;
+}
+
+.brand-text strong {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.brand-text small {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+  line-height: 1.2;
+}
+
 .nav {
-  display: none; /* Hidden on mobile */
+  display: none; /* Initially hidden on mobile */
   gap: var(--spacing-lg);
   align-items: center;
+  justify-content: center;
+  margin-left: 100px;
 }
+
 .nav a {
   font-weight: 600;
   color: var(--color-text);
+  padding: 0.5rem; /* Add some padding for better spacing */
 }
+
 .nav a:hover {
   color: var(--color-primary);
 }
+
 .nav-toggle {
   display: block; /* Shown on mobile */
   font-size: 1.5rem;
@@ -308,11 +339,10 @@ img, svg {
   cursor: pointer;
 }
 
-/* Hero Section */
 .hero {
   position: relative;
   text-align: center;
-  padding: var(--spacing-xxl) 0;
+  padding: clamp(3rem, 8vw, 6rem) 0;
   overflow: hidden;
 }
 .decor-bg {
@@ -326,22 +356,28 @@ img, svg {
   z-index: -2;
 }
 .hero-wave {
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 100%;
-    height: 100px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='1' d='M0,160L48,176C96,192,192,224,288,229.3C384,235,480,213,576,192C672,171,768,149,864,154.7C960,160,1056,192,1152,197.3C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-size: cover;
-    z-index: -1;
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='1' d='M0,160L48,176C96,192,192,224,288,229.3C384,235,480,213,576,192C672,171,768,149,864,154.7C960,160,1056,192,1152,197.3C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
 }
 .hero-copy {
   max-width: 650px;
   margin: 0 auto;
 }
 .hero h1 {
-  font-size: 2.25rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.2;
+  color: var(--color-primary);
+  background: linear-gradient(90deg, var(--color-primary), #000000);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .hero p {
   font-size: 1.15rem;
@@ -355,6 +391,13 @@ img, svg {
   gap: var(--spacing-md);
   flex-wrap: wrap;
 }
+.cta-group .btn {
+  transition: all 0.3s ease;
+}
+.cta-group .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 82, 204, 0.25);
+}
 .hero-bullets {
   list-style: none;
   padding: 0;
@@ -365,8 +408,6 @@ img, svg {
   gap: var(--spacing-sm);
   text-align: left;
 }
-
-/* Feature Cards */
 .feature-cards {
   display: grid;
   gap: var(--spacing-lg);
@@ -381,8 +422,6 @@ img, svg {
 .feature-card .icon {
   font-size: 2rem;
 }
-
-/* Awareness Section */
 .info-split {
   display: grid;
   gap: var(--spacing-lg);
@@ -398,8 +437,6 @@ img, svg {
   border-color: var(--color-success);
 }
 .info-split h3 { margin-top: 0; }
-
-/* Workflow Section */
 .steps {
   list-style: none;
   padding: 0;
@@ -428,8 +465,6 @@ img, svg {
   align-items: center;
   justify-content: center;
 }
-
-/* Architecture Diagram */
 .arch-diagram {
     border: 1px solid var(--color-border);
     border-radius: var(--border-radius-lg);
@@ -437,8 +472,6 @@ img, svg {
     padding: var(--spacing-md);
     box-shadow: var(--shadow-sm);
 }
-
-/* FAQs */
 #faq .card {
   margin-bottom: var(--spacing-md);
 }
@@ -470,7 +503,6 @@ details p {
   border-top: 1px solid var(--color-border);
 }
 
-/* Footer */
 .site-footer {
   background-color: var(--color-heading);
   color: var(--color-white);
@@ -497,7 +529,9 @@ details p {
   justify-content: center;
 }
 
-/* Chat Widget */
+/* ------------------- */
+/* Chat Widget
+/* ------------------- */
 .chat-launcher {
   position: fixed;
   bottom: var(--spacing-lg);
@@ -527,6 +561,8 @@ details p {
   right: var(--spacing-lg);
   width: 90%;
   max-width: 360px;
+  height: min(70vh, 500px);
+  max-height: 500px;
   background-color: var(--color-background);
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-lg);
@@ -550,7 +586,7 @@ details p {
   background-color: var(--color-background-alt);
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
 }
 .chat-header strong { display: block; }
 .chat-header small { color: var(--color-text-light); }
@@ -566,47 +602,112 @@ details p {
 .chat-body {
   flex-grow: 1;
   padding: var(--spacing-md);
-  height: 300px;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
 }
+.chat-msg {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius-lg);
+  background-color: var(--color-background-alt);
+  max-width: 80%;
+  align-self: flex-start;
+  line-height: 1.4;
+}
+.chat-msg .from {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-xs);
+}
+.chat-msg.me {
+  align-self: flex-end;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
 .chat-input {
   display: flex;
+  align-items: center;
   padding: var(--spacing-md);
   border-top: 1px solid var(--color-border);
+  gap: var(--spacing-sm);
 }
-.chat-input input {
-  flex-grow: 1;
+
+/* This new wrapper is the key to the layout */
+.chat-input-wrapper {
+  position: relative;
+  display: flex;
+  flex-grow: 1; /* Allows the wrapper to take up the main space */
+  align-items: center;
+}
+
+/* Style the text input */
+#chat-text {
+  width: 100%;
+  height: 44px;
   border: 1px solid var(--color-border);
-  border-radius: var(--border-radius-md) 0 0 var(--border-radius-md);
+  border-radius: var(--border-radius-md);
   padding: 0.5rem 0.75rem;
+  /* CRUCIAL: Add padding on the LEFT to make space for the icon */
+  padding-left: 40px; 
 }
-.chat-input input:focus {
-    outline: none;
-    border-color: var(--color-primary);
-    box-shadow: none;
-}
-.chat-input button {
-  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+
+#chat-text:focus {
+  outline: none;
+  border-color: var(--color-primary);
   box-shadow: none;
 }
 
+/* Style and position the microphone button */
+.chat-mic-btn {
+  position: absolute; /* Position it on top of the wrapper */
+  left: 12px;         /* Position from the left edge */
+  top: 50%;
+  transform: translateY(-50%); /* Perfectly center vertically */
+  z-index: 10; /* Ensure it's on top of the input field */
+  
+  /* Reset button styles to look like an icon */
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: var(--color-text-light);
+  transition: color 0.2s ease;
+}
+
+.chat-mic-btn:hover {
+  color: var(--color-primary);
+}
+
+.chat-mic-btn.is-listening {
+  color: var(--color-error);
+  animation: pulse 1.5s infinite;
+}
+
+/* Style the Send button */
+.chat-input button[type="submit"] {
+    height: 44px;
+    box-shadow: none;
+    flex-shrink: 0; /* Prevents the button from shrinking */
+}
+
+/* The animation for the listening state */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
 /* ------------------- */
-/* 5. Media Queries
+/* Media Queries
 /* ------------------- */
 @media (min-width: 768px) {
-  h1 { font-size: 3rem; }
-  .hero h1 { font-size: 3.5rem; }
-  
   .nav-toggle { display: none; }
   .nav { display: flex; }
   
-  .hero-copy {
-    text-align: left;
-  }
-  .cta-group, .hero-bullets {
-    justify-content: flex-start;
-  }
-
   .feature-cards {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -623,46 +724,9 @@ details p {
   }
 }
 
-/* ------------------- */
-/* 6. Dark Theme (with Light Orange Texture)
-/* ------------------- */
-/* Add this to the end of your styles.css file */
-
-b/* ------------------- */
-/* 6. Lighter Dark Theme (Slate/Midnight)
-/* ------------------- */
-
-body.theme-dark {
-  /* This creates a subtle, textured noise pattern for the background */
-  --texture-noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
-
-  /* --- Re-define CSS Variables for a Lighter, Slate-Blue Dark Mode --- */
-
-  /* Colors */
-  --color-primary: #FFB74D;         /* Light Orange accent remains vibrant */
-  --color-primary-dark: #F57C00;   /* Darker Orange for hover */
-  --color-text: #C5D2E5;           /* Softer, slightly blue-tinted text */
-  --color-text-light: #8A9BB3;     /* Muted text, still very readable */
-  --color-heading: #F5F7FA;        /* Softer white for headings */
-  --color-background: #1D2432;     /* Lighter, slate blue background */
-  --color-background-alt: #252E3F; /* Alt background and card surface */
-  --color-border: #3A4459;         /* Softer, more visible border */
-  --color-surface: #252E3F;        /* Surface color for cards */
-
-  /* Shadows (adjusted for the lighter dark background) */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 0 15px rgba(255, 183, 77, 0.07);
-  --shadow-lg: 0 0 25px rgba(255, 183, 77, 0.12);
-
-  /* Set the textured background */
-  background-color: var(--color-background);
-  background-image: var(--texture-noise);
-}
 /* --------------------------------- */
-/* 7. Hero Section Entrance Animation
+/* Hero Section Entrance Animation
 /* --------------------------------- */
-
-/* 1. Define the "fade in and slide up" animation keyframes */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -674,35 +738,26 @@ body.theme-dark {
   }
 }
 
-/* 2. Apply the animation to the hero section elements */
 .hero h1,
 .hero p,
 .hero .cta-group,
 .hero .hero-bullets li {
-  /* This keeps the elements hidden until the animation starts */
   opacity: 0;
-  /* This tells the element to stay at the 'to' state after the animation finishes */
   animation-fill-mode: forwards;
-  /* Apply our animation */
   animation-name: fadeInUp;
   animation-duration: 0.8s;
   animation-timing-function: ease-out;
 }
 
-/* 3. Stagger the animations by adding a delay to each element */
 .hero h1 {
   animation-delay: 0.2s;
 }
-
 .hero p {
   animation-delay: 0.4s;
 }
-
 .hero .cta-group {
   animation-delay: 0.6s;
 }
-
-/* Animate each bullet point individually */
 .hero .hero-bullets li:nth-child(1) {
   animation-delay: 0.8s;
 }
@@ -713,27 +768,22 @@ body.theme-dark {
   animation-delay: 1.0s;
 }
 
-
 /* --------------------------------- */
-/* 9. Hero Section with Image Layout
+/* Hero Section with Image Layout
 /* --------------------------------- */
-
-/* 1. Basic Image Styling (for all screen sizes) */
 .hero-logo {
   display: block;
   max-width: 300px;
   width: 60%;
   height: auto;
   border-radius: 12px;
-  margin: 0 auto var(--spacing-xl); /* Centers the logo on mobile */
-  ;
+  margin: 0 auto var(--spacing-xl);
 }
 
-/* 2. Two-Column Layout (for DESKTOP screens) */
 @media (min-width: 992px) {
   .hero-inner {
     display: grid;
-    grid-template-columns: 1fr 1.2fr; /* Creates the two columns */
+    grid-template-columns: 0.8fr 1.2fr;
     gap: var(--spacing-xxl);
     align-items: center;
   }
@@ -741,12 +791,12 @@ body.theme-dark {
   .hero-logo {
     width: 100%;
     max-width: 450px;
-    margin: 0; /* Resets the mobile centering */
+    margin: 0;
   }
 
   .hero-copy {
     text-align: left;
     margin: 0;
-    max-width: none; /* IMPORTANT: Removes width restriction */
+    max-width: none;
   }
 }

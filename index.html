@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <title>SamarthDBT — Student DBT Awareness & Verification</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,33 +16,50 @@
       <div class="gov-left">
         <span class="gov-text">Government of India • Ministry of Education</span>
       </div>
-      <div class="gov-right">
+      <!-- <div class="gov-right">
         <a href="#" class="gov-link">हिन्दी</a>
         <span class="sep">|</span>
         <a href="#" class="gov-link">English</a>
-      </div>
+      </div> -->
     </div>
   </div>
+<header class="site-header">
+  <div class="container header-inner">
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="#">
-        <div class="brand-text">
-          <strong>SamarthDBT</strong>
-          <small>DBT Awareness & Verification</small>
+    <a class="brand" href="#">
+      <div class="brand-text" style="display: flex !important; align-items: center !important; gap: 12px !important;">
+        
+        <img 
+          src="./Assets/logodbt.jpg" 
+          alt="SamarthDBT Logo" 
+          class="brand-logo" 
+          style="width: 65px !important; height: 68px !important; border-radius: 6px !important; display: block !important;" 
+        /> 
+    
+        <div>
+          <strong style="display: block !important; font-size: 1.25rem !important; font-weight: 700 !important; line-height: 1.2 !important;">
+            SamarthDBT
+          </strong>
+          <small style="display: block !important; font-size: 0.8rem !important; color: #667085 !important; line-height: 1.2 !important;">
+            DBT Awareness & Verification
+          </small>
         </div>
-      </a>
-      <nav class="nav" aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#verify">Verify</a>
-        <a href="#awareness">Awareness</a>
-        <a href="#workflows">Workflows</a>
-        <a href="#faq">FAQs</a>
-        <a href="#contact" class="btn btn-sm">Contact</a>
-      </nav>
-      <button class="nav-toggle" aria-label="Open menu">☰</button>
-    </div>
-  </header>
+
+      </div>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#verify">Verify</a>
+      <a href="#awareness">Awareness</a>
+      <a href="#workflows">Workflows</a>
+      <a href="#faq">FAQs</a>
+      <a href="#contact" class="btn btn-sm">Contact</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Open menu">☰</button>
+
+  </div>
+</header>
 
   <section class="hero">
     <div class="decor-bg" aria-hidden="true"></div>
@@ -284,9 +302,20 @@
     </div>
     <div id="chat-body" class="chat-body" aria-live="polite"></div>
     <form id="chat-form" class="chat-input" autocomplete="off">
-      <input id="chat-text" type="text" placeholder="Type your question..." aria-label="Type your question" />
-      <button type="submit" class="btn">Send</button>
-    </form>
+  
+  <div class="chat-input-wrapper">
+    
+    <input id="chat-text" type="text" placeholder="Type or press mic..." aria-label="Type your question" />
+    
+    <button type="button" id="chat-mic" class="chat-mic-btn" aria-label="Use microphone">
+      <i class="fa-solid fa-microphone"></i>
+    </button>
+
+  </div>
+  
+  <button type="submit" class="btn">Send</button>
+
+</form>
   </div>
   
 
